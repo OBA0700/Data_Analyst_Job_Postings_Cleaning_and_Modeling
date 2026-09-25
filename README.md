@@ -34,9 +34,15 @@ The resulting database is organized primarily around three tables: `jobs`, `comp
 
 ### Explore the SQL Workflow
 
-The complete documented SQL workflow—including the audit queries, cleaning decisions, transformations, technical explanations, and validation checks—is available here:
+The complete documented SQL workflow—including the audit queries, cleaning decisions, transformations, technical explanations, and validation checks—is organized into sequential stages, and available here:
 
-**[View the complete SQL cleaning workflow](C:\Users\User\Desktop\data_analyst_job_postings_cleaning\sql\data_cleaning_and_modeling.sql)**
+1. [Data Setup & Initial Audit](/sql/01_data_setup_and_audit.sql)
+2. [Deduplication & Data Types](/sql/02_deduplication_and_types.sql)
+3. [Location & Company Cleaning](/sql/03_location_and_company_cleaning.sql)
+4. [Skill Assessment & Mapping](/sql/04_skill_assessment_and_mapping.sql)
+5. [Skill Recovery](/sql/05_skill_recovery.sql)
+6. [Relational Modeling](/sql/06_relational_modeling.sql)
+7. [Final Validation](/sql/07_final_validation.sql)
 
 ---
 
@@ -121,7 +127,7 @@ SELECT
     COUNT(*) - COUNT(DISTINCT job_id) AS repeated_jobs
 FROM raw_job_postings;
 ```
-![Relational data model](media\image1.png)
+![Relational data model](/media/image1.png)
 
 The audit established:
 
@@ -162,7 +168,7 @@ SELECT
     COUNT(DISTINCT job_id) AS unique_job_ids
 FROM unique_raw_job_postings;
 ```
-![Relational data model](media\image2.png)
+![Relational data model](/media/image2.png)
 
 Both counts returned **58,775**.
 
@@ -228,7 +234,7 @@ SELECT
 FROM unique_raw_job_postings
 GROUP BY location_issue;
 ```
-![Relational data model](media\image3.png)
+![Relational data model](/media/image3.png)
 
 The whitespace represented a confirmed formatting defect and was corrected:
 
@@ -242,7 +248,7 @@ Validation returned:
 
 **0 records with remaining leading/trailing whitespace.**
 
-![Relational data model](media\image4.png)
+![Relational data model](/media/image4.png)
 
 The 37 `NULL` values were retained.
 
@@ -290,7 +296,7 @@ The `description_tokens` field contained skill information for many jobs, but **
 
 rather than supplied skill tokens.
 
-![Relational data model](media\image5.png)
+![Relational data model](/media/image5.png)
 
 Instead of immediately treating all 12,812 records as unrecoverable, I investigated the full job descriptions.
 
@@ -414,7 +420,7 @@ Only then were the supported records updated.
 
 **597 jobs** received recovered skill information.
 
-![Relational data model](media\image6.png)
+![Relational data model](/media/image6.png)
 
 The resulting skill coverage was:
 
@@ -540,7 +546,7 @@ Individual standardized job-to-skill relationships.
 
 ### Relationship Structure
 
-![Relational data model](media\image7.png)
+![Relational data model](/media/image7.png)
 
 ---
 
