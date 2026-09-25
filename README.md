@@ -607,7 +607,7 @@ This project strengthened both my technical SQL skills and my approach to data-q
 
 * **Database constraints are part of data quality.** Primary keys, foreign keys, and unique constraints allowed important classification to move beyond documentation into rules enforced by PostgreSQL itself.
 
-* **AI-assisted problem solving still requires validation.** Using ChatGPT for some syntax brainstorming helped me to solidify the importance of understanding the proposed logic, adapting it to the actual data problem, testing it against real records, and validating the result rather than accepting generated SQL at face value.
+* **AI-assisted problem solving still requires validation.** Using ChatGPT for some syntax brainstorming helped me to solidify the importance of understanding the proposed logic, adapting it to the actual data problem, testing it against real records, and validating the result rather than accepting generated SQL at data value point.
 
 ---
 
