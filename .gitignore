@@ -1,0 +1,2 @@
+# Keep source CSV datasets local; do not track them in Git
+data/*.csv
